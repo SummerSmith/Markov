@@ -7,7 +7,7 @@ public class BruteMarkov implements MarkovInterface<String> {
 	private int myOrder;
 	
 	private static String PSEUDO_EOS = "";
-	private static int RANDOM_SEED = 5678;
+	private static int RANDOM_SEED = 1234;
 	
 	public BruteMarkov(int order) {
 		myRandom = new Random(RANDOM_SEED);
@@ -46,7 +46,7 @@ public class BruteMarkov implements MarkovInterface<String> {
 			}
 			sb.append(nextItem);
 			current = current.substring(1)+ nextItem;
-		}
+		} 
 		return sb.toString();
 	}
 	

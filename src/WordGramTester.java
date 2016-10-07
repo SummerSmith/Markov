@@ -65,5 +65,42 @@ public class WordGramTester {
 		assertEquals("fail super",a.compareTo(a2) > 0, true);
 		assertEquals("fail empty",b2.compareTo(a2) < 0, true);
 	}
-
+	
+	@Test
+	public void testShiftAdd() {
+		String[] words = {"apple", "zebra", "mongoose", "hat", "sat", "map"};
+		WordGram a = new WordGram(words,0,2);
+		WordGram a2 = new WordGram(words,1,2);
+		WordGram b = new WordGram(words,0,3);
+		WordGram b2 = new WordGram(words,1,3);
+		WordGram c = new WordGram(words, 2, 2);
+		WordGram c2 = new WordGram(words, 3, 2);
+		WordGram d = new WordGram(words, 0, 4);
+		WordGram d2 = new WordGram(words, 1, 4);
+		
+		assertEquals("test shiftAdd", a.shiftAdd("mongoose"), a2);
+		assertEquals("test shiftAdd", b.shiftAdd("hat"), b2);
+		assertEquals("test shiftAdd", c.shiftAdd("sat"), c2);
+		assertEquals("test shiftAdd", d.shiftAdd("sat"), d2);
+	}
+	@Test
+	public void testToString() {
+		String[] words = {"apple", "zebra", "mongoose", "hat", "sat", "map"};
+		WordGram a = new WordGram(words,0,2);
+		WordGram a2 = new WordGram(words,1,2);
+		WordGram b = new WordGram(words,0,3);
+		WordGram b2 = new WordGram(words,1,3);
+		
+		String printa = "{\"apple\",\"zebra\"}";
+		String printa2 = "{\"zebra\",\"mongoose\"}";
+		String printb = "{\"apple\",\"zebra\",\"mongoose\"}";
+		String printb2 = "{\"zebra\",\"mongoose\",\"hat\"}";
+		
+		assertEquals("test toString()", a.toString(), printa);
+		assertEquals("test toString()", a2.toString(), printa2);
+		assertEquals("test toString()", b.toString(), printb);
+		assertEquals("test toString()", b2.toString(), printb2);
+	}
+	
+	
 }
